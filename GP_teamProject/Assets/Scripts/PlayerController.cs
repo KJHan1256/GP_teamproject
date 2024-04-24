@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
 
     [SerializeField] private float speed = 2.0f;      //이동속도 설정, 스크립트 외부에서도 조절 가능하게 [SerializeField] 선언
-
+    [SerializeField] private StageData stageData;     //스테이지 데이터 에셋을 받기 위한 필드
 
     //Awake는 오브젝트 생성시 동작, 따라서 가장 처음 동작되는 부분
     private void Awake()
@@ -31,6 +31,13 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = inputVec.normalized * speed * Time.deltaTime;
         rigid.MovePosition(rigid.position + movement);
         
+    }
+
+    private void LateUpdate()
+    {
+        //플레이어가 화면 밖으로 못나가도록 제한
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, stageData.LimitMin.x, stageData.LimitMax.x),
+                                         Mathf.Clamp(transform.position.y, stageData.LimitMin.y, stageData.LimitMax.y));
     }
 
 }

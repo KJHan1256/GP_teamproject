@@ -32,6 +32,9 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject);    //Á¦°Å
         }
+
+
+
     }
 
 }

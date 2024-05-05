@@ -14,11 +14,6 @@ public class ProjectileManager : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
-
     private IEnumerator DisableProjetile()  //발사체 제거를 위한 코루틴
     {
         while (true)
@@ -31,4 +26,13 @@ public class ProjectileManager : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)     //충돌 발생 시
+    {
+        if (collision.CompareTag("Enemy")) //적과 충돌했다면
+        {
+            Destroy(gameObject);    //제거
+        }
+    }
+
 }

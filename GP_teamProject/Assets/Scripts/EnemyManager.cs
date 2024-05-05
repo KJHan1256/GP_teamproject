@@ -25,4 +25,13 @@ public class EnemyManager : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)     //충돌이 발생할 시
+    {
+        if(collision.CompareTag("Player Projectile")) //플레이어의 발사체와 충돌했다면
+        {
+            Destroy(gameObject);    //제거
+        }
+    }
+
 }

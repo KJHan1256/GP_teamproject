@@ -6,6 +6,19 @@ public class EnemyManager : MonoBehaviour
 {   //적의 세부 동작을 관리하기 위한 클래스
 
     [SerializeField] private StageData stageData;    //스테이지 데이터'
+    [SerializeField] private int damage = 1;    //공격력
+    [SerializeField] private float maxHp = 3;  //최대 체력
+    [SerializeField] private float currentHp;   //현재 체력
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        currentHp = maxHp;
+    }
+
+
     void Start()
     {
         StartCoroutine("BackToForward");    //화면 왼쪽으로 벗어나면 다시 오른쪽에서 등장시키는 코루틴
@@ -28,13 +41,34 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)     //충돌이 발생할 시
     {
-        if(collision.CompareTag("Player Projectile")) //플레이어의 발사체와 충돌했다면
+
+        if (collision.CompareTag("Player Projectile")) //플레이어의 발사체와 충돌했다면
         {
-            Destroy(gameObject);    //제거
+            float pDamage = PlayerStatus.instance.damage;
+            currentHp -= pDamage;    //플레이어의 공격력만큼 현재 체력 감소
+            StopCoroutine("HitColorAnimation");
+            StartCoroutine("HitColorAnimation");
+
+            //체력이 0이면 사망
+            if (currentHp <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
+        else if (collision.CompareTag("Player")) //플레이어와 충돌하면
+        {
+            //플레이어 메니저 클래스의 데미지 처리 메소드 실행
+            collision.GetComponent<PlayerManager>().TakeDamage(damage);
+        }
 
+    }
 
+    private IEnumerator HitColorAnimation()
+    {
+        spriteRenderer.color = Color.red;   //스프라이크를 빨간색으로
+        yield return new WaitForSeconds(0.05f);  //0.1초 대기
+        spriteRenderer.color = Color.white; //다시 원래 색으로
     }
 
 }

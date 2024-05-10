@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 1041089891}
   - component: {fileID: 1041089892}
   - component: {fileID: 1041089893}
+  - component: {fileID: 1041089894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2702548932850259072, guid: ce587b4292ce0b4499e1473a7e8393bd, type: 3}
-  attackRate: 0.1
+  attackRate: 0.3
 --- !u!114 &1041089893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +557,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15130c9be8724af4189506fae3cfd730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+--- !u!114 &1041089894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041089886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9f1f81f4bba7f47aa3eabb2a50fec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  maxHp: 10
+  currentHp: 0
+  attackSpeed: 1
 --- !u!1 &1267483997
 GameObject:
   m_ObjectHideFlags: 0

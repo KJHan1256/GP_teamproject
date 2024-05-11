@@ -6,11 +6,11 @@ public class EnemyManager : MonoBehaviour
 {   //적의 세부 동작을 관리하기 위한 클래스
 
     [SerializeField] private StageData stageData;    //스테이지 데이터'
-    [SerializeField] private int damage = 1;    //공격력
-    [SerializeField] private float maxHp = 3;  //최대 체력
-    [SerializeField] private float currentHp;   //현재 체력
+    [SerializeField] private int damage = 1;    //적 공격력
+    [SerializeField] private float maxHp = 3;  //적 최대 체력
+    [SerializeField] private float currentHp;   //적 현재 체력
+    [SerializeField] private int scorePoint = 100;  //적 처치시 지급되는 점수
     [SerializeField] private SpriteRenderer spriteRenderer;
-
 
     private void Awake()
     {
@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
             //체력이 0이면 사망
             if (currentHp <= 0)
             {
-                Destroy(this.gameObject);
+                OnDie();
             }
         }
 
@@ -69,6 +69,12 @@ public class EnemyManager : MonoBehaviour
         spriteRenderer.color = Color.red;   //스프라이크를 빨간색으로
         yield return new WaitForSeconds(0.05f);  //0.1초 대기
         spriteRenderer.color = Color.white; //다시 원래 색으로
+    }
+
+    public void OnDie()
+    {
+        PlayerStatus.instance.score += scorePoint;
+        Destroy(this.gameObject);
     }
 
 }

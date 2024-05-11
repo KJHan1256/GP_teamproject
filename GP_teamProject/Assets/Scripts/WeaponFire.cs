@@ -27,7 +27,7 @@ public class WeaponFire : MonoBehaviour
     }
 
 
-    private void Awake()
+    private void Start()
     {
         AttackSpeedUpdate(PlayerStatus.instance.attackSpeed);   //초기 공격 빈도 설정
     }

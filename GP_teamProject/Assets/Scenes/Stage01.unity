@@ -915,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
+  nextSceneName: GameOver
 --- !u!114 &1041089894
 MonoBehaviour:
   m_ObjectHideFlags: 0

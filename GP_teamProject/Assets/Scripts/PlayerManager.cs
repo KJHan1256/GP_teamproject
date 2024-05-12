@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
 {
 
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private string nextSceneName;  //죽을 때 넘어갈 다음 씬의 이름
 
 
     private void Awake()
@@ -24,7 +26,15 @@ public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
         if (PlayerStatus.instance.currentHp <= 0)
         {
             Debug.Log("Game Over");
+            OnDie();
         }
+    }
+
+
+    private void OnDie() 
+    {
+        //플레이어 사망 시 
+        SceneManager.LoadScene(nextSceneName);  //nextSceneName에 지정된 씬으로 이동
     }
 
 

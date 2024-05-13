@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
     private void OnDie() 
     {
         //플레이어 사망 시 
+        PlayerPrefs.SetInt("Score", PlayerStatus.instance.score);
         SceneManager.LoadScene(nextSceneName);  //nextSceneName에 지정된 씬으로 이동
     }
 

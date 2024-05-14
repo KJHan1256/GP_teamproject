@@ -8,11 +8,13 @@ public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private string nextSceneName;  //죽을 때 넘어갈 다음 씬의 이름
+    private Animator animator;
 
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -31,7 +33,17 @@ public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
     }
 
 
-    private void OnDie() 
+    public void OnDie()
+    {
+        animator.SetTrigger("onDie");
+        //사망 애니메이션 재생
+        Destroy(GetComponent<CapsuleCollider2D>());
+        //층돌판정 제거
+        PlayerStatus.instance.isDie = true;
+        //상태를 사망으로 변경
+    }
+
+    public void OnDieEvent() 
     {
         //플레이어 사망 시 
         PlayerPrefs.SetInt("Score", PlayerStatus.instance.score);

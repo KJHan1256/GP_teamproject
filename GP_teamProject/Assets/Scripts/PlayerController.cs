@@ -28,6 +28,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PlayerStatus.instance.isDie == true)
+        {
+            inputVec = Vector2.zero;
+            //죽었다면 조작 불가
+            return;
+        }
+
         inputVec.x = Input.GetAxisRaw("Horizontal");     //키보드 방향키와 ad로 좌우 입력받음
         inputVec.y = Input.GetAxisRaw("Vertical");         //키보드 방향키와 ws로 상하...
         

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7476483213116358481
+--- !u!1 &494389455064974570
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5690354623586350410}
-  - component: {fileID: 5303889827007696871}
-  - component: {fileID: 5041321209330713855}
-  - component: {fileID: 3397899226942996460}
-  - component: {fileID: -3106207501465315253}
-  - component: {fileID: -6740969004393736960}
-  - component: {fileID: -2112595088352044053}
+  - component: {fileID: 503094018219456420}
+  - component: {fileID: 8162028257625324578}
+  - component: {fileID: 7104572644550819277}
+  - component: {fileID: 7835661566497159476}
+  - component: {fileID: 6708406956977902638}
+  - component: {fileID: 3258264010021705361}
   m_Layer: 0
-  m_Name: Enemy01
-  m_TagString: Enemy
+  m_Name: Item01_PowerUp
+  m_TagString: ItemPowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5690354623586350410
+--- !u!4 &503094018219456420
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
+  m_GameObject: {fileID: 494389455064974570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5303889827007696871
+--- !u!212 &8162028257625324578
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
+  m_GameObject: {fileID: 494389455064974570}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,83 +77,51 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -642872733, guid: bc553bd077d9e1f459e88ff88c0f6066, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd740d2ecf96929458bdf9e88b7e7d15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.89, y: 0.58}
+  m_Size: {x: 0.98, y: 1.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5041321209330713855
+--- !u!114 &7104572644550819277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
+  m_GameObject: {fileID: 494389455064974570}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa9a4e82540066747afa5d7c5f5f904e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1
   moveDiredtion: {x: -1, y: 0, z: 0}
---- !u!114 &3397899226942996460
+--- !u!114 &7835661566497159476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
+  m_GameObject: {fileID: 494389455064974570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bd487f96473ce42968a4ae8e273bdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 99955d14f7768a5479103d8947170750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 157ffd583ee6f304c9c0847a6aa49ed2, type: 2}
-  damage: 1
-  maxHp: 3
-  currentHp: 0
-  scorePoint: 100
-  spriteRenderer: {fileID: 0}
---- !u!50 &-3106207501465315253
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &-6740969004393736960
+--- !u!58 &6708406956977902638
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
+  m_GameObject: {fileID: 494389455064974570}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -180,27 +147,33 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.3
---- !u!95 &-2112595088352044053
-Animator:
-  serializedVersion: 5
+  m_Radius: 0.4
+--- !u!50 &3258264010021705361
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476483213116358481}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7426d06ece06de743a8c0f753e3a12b4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_GameObject: {fileID: 494389455064974570}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

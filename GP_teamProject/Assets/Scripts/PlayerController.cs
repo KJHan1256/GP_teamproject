@@ -20,10 +20,7 @@ public class PlayerController : MonoBehaviour
         weaponFire = GetComponent<WeaponFire>();   //공격 기능 캐슁
     }
 
-    void Start()
-    {
-   
-    }
+    
 
     // Update is called once per frame
     void Update()

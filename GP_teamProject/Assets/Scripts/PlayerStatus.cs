@@ -9,8 +9,9 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] public float maxHp = 10;  //최대 체력
     [SerializeField] public float currentHp;   //현재 체력
     [SerializeField] public float attackSpeed = 1f; //공격속도
-    [SerializeField] public int score = 0;  //점수
+    public int score = 0;  //점수
     public bool isDie = false;
+    public bool isPowerUp = false;
 
 
 

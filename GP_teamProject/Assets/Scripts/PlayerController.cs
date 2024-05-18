@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();    //player오브젝트의 rigidbodt2D를 캐싱
-        Application.targetFrameRate = 100;      //프레임을 100으로 고정
         weaponFire = GetComponent<WeaponFire>();   //공격 기능 캐슁
     }
 

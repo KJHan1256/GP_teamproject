@@ -12,8 +12,4 @@ public class Movement2D : MonoBehaviour     //오브젝트의 이동을 위한 클래스
         transform.position += moveDiredtion * moveSpeed * Time.deltaTime;
     }
 
-    public void MoveTo(Vector3 direction)
-    {
-        moveDiredtion = direction;
-    }
 }

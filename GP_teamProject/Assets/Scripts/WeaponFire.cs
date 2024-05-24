@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;   //공격시 발사할 투사체 프리팹
+    [SerializeField] private GameObject projectilePrefab1;   //공격시 발사할 투사체 프리팹
+    [SerializeField] private GameObject projectilePrefab2;
+    [SerializeField] private GameObject projectilePrefab3;
     [SerializeField] private float attackRate = 0.3f;     //공격빈도 
+    private List<GameObject> projectiles = new List<GameObject>();
+    private int projectileIndex = 0;
 
 
     //공격속도가 등가할 때마다 공격빈도를 업데이트하기 위한 함수
@@ -30,6 +34,11 @@ public class WeaponFire : MonoBehaviour
     private void Start()
     {
         AttackSpeedUpdate(PlayerStatus.instance.attackSpeed);   //초기 공격 빈도 설정
+
+        //발사체 종류를 담는 리스트 초기화
+        projectiles.Add(projectilePrefab1);
+        projectiles.Add(projectilePrefab2);
+        projectiles.Add(projectilePrefab3);
     }
 
 
@@ -38,11 +47,28 @@ public class WeaponFire : MonoBehaviour
     {
         while (true)
         {
-            GameObject obj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
             //발새체를 현제 위치에 생성
 
             yield return new WaitForSeconds(attackRate);
             //attackRate 만큼 대기
+        }
+    }
+
+
+    //발사할 투사체 변경 메소드
+    public void ChangePlayerProjectile(int EventCase) 
+    {
+        switch (EventCase)
+        {
+            //2티어로 승급
+            case 0:
+                projectileIndex = 1;
+                break;
+            //3티어로 승급
+            case 1:
+                projectileIndex = 2;
+                break;
         }
     }
 

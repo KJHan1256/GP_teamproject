@@ -10,6 +10,7 @@ public class PlayerStatus : MonoBehaviour
     public float currentHp;   //현재 체력
     public float attackSpeed = 1f; //공격속도
     public int score = 0;  //점수
+    public int playerTier = 1;  //플레이어 티어
     public bool isDie = false;
     public bool isPowerUp = false;
 

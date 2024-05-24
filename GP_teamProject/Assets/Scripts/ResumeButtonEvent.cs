@@ -9,6 +9,5 @@ public class ResumeButton : MonoBehaviour
     public void ResumeGame()
     {
         PlayerStatus.instance.isPowerUp = false;
-        PlayerStatus.instance.damage += 1.0f;
     }
 }

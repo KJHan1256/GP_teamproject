@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpButtonEvent : ResumeButton
 {//파워업 아이템 획득 시 누르는 버튼들에 달리게 될 함수들이 작성될 스크립트
 
-    [SerializeField] int pTierCounter = 0;  //티어 상승 버튼을 누른 횟수
+    public int pTierCounter = 0;  //티어 상승 버튼을 누른 횟수
 
     //티어 업 버튼을 누를 시
     public void TierUpPressed()

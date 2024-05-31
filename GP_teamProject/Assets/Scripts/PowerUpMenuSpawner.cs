@@ -27,6 +27,7 @@ public class PowerUpMenuSpawner : MonoBehaviour
     //아이템을 먹어 이 오브젝트가 활성화되면 호출
     private void OnEnable()
     {
+        print("power up activated...");
 
         //리스트 초기화
         UpdateUpgradeList(PlayerStatus.instance.playerTier);
@@ -36,7 +37,8 @@ public class PowerUpMenuSpawner : MonoBehaviour
         //무작위 3개 뽑아야 하는 경우에만 3개 뽑기
         if(val > 3)
         {
-            for(int i = 0; i < val; i++)
+            print("choosing random 3 nums...");
+            for (int i = 0; i < val; i++)
             {
                 ints.Add(i);
             }
@@ -58,22 +60,29 @@ public class PowerUpMenuSpawner : MonoBehaviour
         //남은 업그레이드 항목이 3개 이하라면
         if(val <= 3)
         {
-            for(int i = 0;i < val; i++)
+            print("choosing left upgrades...");
+            for (int i = 0;i < val; i++)
             {
                 buttonList.Add(currentUpgradeList[i].upgradeButton);
             }
         }
         else
         {
+            print("choosing random 3 upgrades...");
             buttonList.Add(currentUpgradeList[a].upgradeButton);
             buttonList.Add(currentUpgradeList[b].upgradeButton);
             buttonList.Add(currentUpgradeList[c].upgradeButton);
         }
 
+        if(buttonList == null)
+        {
+            print("critical Erroe!: failed to get upgrade button!");
+        }
 
         //완성된 리스트를 바탕으로 버튼 생성
         for(int i = 0; i < buttonList.Count ; i++) 
         {
+            print("showing upgrades...");
             GameObject btn = Instantiate(buttonList[i]);
             btn.transform.SetParent(parentScreen.transform, false);
             btn.transform.localPosition = new Vector3(0, 200 - (150 * i), 0);
@@ -87,6 +96,7 @@ public class PowerUpMenuSpawner : MonoBehaviour
     //등장 가능한 업그레이드 리스트를 업데이트, 매 업그레이드 항목 추출 전에 호출
     public void UpdateUpgradeList(int tier)
     {
+        print("power up initiating...");
         //지금의 등장 가능 업그레이드 리스트를 초기화
         currentUpgradeList.Clear();
 
@@ -109,11 +119,15 @@ public class PowerUpMenuSpawner : MonoBehaviour
                 tempTierList = upgradeList1T;
                 break;
         }
-
+        if(tempTierList == null)
+        {
+            print("critical Error!: failed to get tierList");
+        }
         //티어별 리스트에서 업그레이드가 불가능한 항목 제거
         //인덱싱 오류를 막기 위해 뒤에서부터 리스팅
         for(int i = tempTierList.Count - 1 ; i >= 0 ; i--)
         {
+            print("removing max level upgrades...1");
             //만약 해당 업그레이드가 최대 레밸이 아니라면
             if (tempTierList[i].isUpgradable == false)
             {
@@ -125,6 +139,7 @@ public class PowerUpMenuSpawner : MonoBehaviour
         //소유 리스트에서 업그레이드 불가능한 항목 제거
         for(int i = tempOwnList.Count - 1 ; i >= 0 ;i--)
         {
+            print("removing max level upgrades...2");
             if (tempOwnList[i].isUpgradable == false)
             {
                 tempOwnList.RemoveAt(i);
@@ -136,6 +151,11 @@ public class PowerUpMenuSpawner : MonoBehaviour
         currentUpgradeList.AddRange(tempTierList);
         currentUpgradeList.AddRange(tempOwnList);
         currentUpgradeList = currentUpgradeList.Distinct().ToList();
+        print("upgrade list setting complete");
+        if(currentUpgradeList == null)
+        {
+            print("critical Error: failed to make upgrade list");
+        }
     }
 
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BtnEvent_HpUp : ResumeButton
 {
-    [SerializeField] private UpgradeData _upgradeData;
+    [SerializeField] private UpgradeData _upgradeData;  //업그레이드의 정보를 담고있는 스크립터블 오브젝트
     private int upgradeLvl;
     private int maxLvl;
+    private PowerUpMenuSpawner _menuSpawner;
 
-  
 
 
     private void OnEnable()
@@ -37,9 +37,16 @@ public class BtnEvent_HpUp : ResumeButton
     {
         if (upgradeLvl != maxLvl)
         {
+            _menuSpawner = transform.parent.GetComponent<PowerUpMenuSpawner>();
             _upgradeData.currentLevel += 1;
             PlayerStatus.instance.maxHp += 5;
             PlayerStatus.instance.currentHp = Mathf.Min(PlayerStatus.instance.maxHp, PlayerStatus.instance.currentHp + 5);
+            //만약 기존에 이 업그레이드를 소유하지 않았었다면
+            if (_menuSpawner.ownUpgradeList.IndexOf(_upgradeData) == -1)
+            {
+                //이 업그레이드의 데이터를 추가
+                _menuSpawner.ownUpgradeList.Add(_upgradeData);
+            }
             base.ResumeGame();
             Destroy(this.gameObject);
         }

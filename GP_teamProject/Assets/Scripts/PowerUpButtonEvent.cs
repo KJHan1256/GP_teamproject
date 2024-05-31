@@ -69,16 +69,16 @@ public class PowerUpButtonEvent : ResumeButton
         }
         
         //플레이어 티어에 따라 업그레이드 리스트 업데이트
-        switch(pTier)
-        {
-            case 2:
+        //switch(pTier)
+        //{
+           // case 2:
 
-                break;
+                //break;
             
-            case 3:
+            //case 3:
 
-                break;
-        }
+                //break;
+        //}
 
         base.ResumeGame();
     }

@@ -901,6 +901,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: 0.01
   scrollDirection: 1
+  backgroundList:
+  - {fileID: 2100000, guid: 28cf8efd49dbc4d45aeb3d60259b4962, type: 2}
+  - {fileID: 2100000, guid: 2bb04373ce5a7694eabe619bfe0aaf76, type: 2}
+  - {fileID: 2100000, guid: f93773e5c9f80134997c818bc7974349, type: 2}
 --- !u!64 &833784559
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1021,7 +1025,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 157ffd583ee6f304c9c0847a6aa49ed2, type: 2}
   spawnTime: 1
-  enemyPrefab: {fileID: 7476483213116358481, guid: 6d0dbd93c5a9117489c8bbf67092a8cd, type: 3}
+  enemyTier: 0
+  enemyPrefabList:
+  - {fileID: 7476483213116358481, guid: 6d0dbd93c5a9117489c8bbf67092a8cd, type: 3}
+  - {fileID: 7476483213116358481, guid: e6f50664117858947a44bee79c4ffadd, type: 3}
+  - {fileID: 7476483213116358481, guid: 1185ea2134b39ef46a6136b443793774, type: 3}
+  background: {fileID: 833784557}
+  tier2Score: 1000
+  tier3Score: 2000
 --- !u!4 &970296778
 Transform:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class PowerUpMenuSpawner : MonoBehaviour
     private List<UpgradeData> currentUpgradeList = new List<UpgradeData>();
     
     //현재 보유중인 업그레이드 항목들 리스트
-    private List<UpgradeData> ownUpgradeList = new List<UpgradeData>();
+    public List<UpgradeData> ownUpgradeList = new List<UpgradeData>();
 
     //소환할 업그레이드 버튼을 담을 리스트
     private List<GameObject> buttonList = new List<GameObject>();
@@ -88,9 +88,8 @@ public class PowerUpMenuSpawner : MonoBehaviour
             btn.transform.localPosition = new Vector3(0, 200 - (150 * i), 0);
         }
 
+
     }
-
-
 
 
     //등장 가능한 업그레이드 리스트를 업데이트, 매 업그레이드 항목 추출 전에 호출

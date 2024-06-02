@@ -13,7 +13,8 @@ public class UpgradeDataInitializer : MonoBehaviour
         for (int i = 0; i < a; i++) 
         {
             data[i].currentLevel = 0;
-            data[i].isUpgradable = true;
+            data[i].maxLevel = data[i].initialMaxLvl;
+            
         }
     }
 

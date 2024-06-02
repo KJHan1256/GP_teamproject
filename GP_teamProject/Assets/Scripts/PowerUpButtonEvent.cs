@@ -31,7 +31,11 @@ public class PowerUpButtonEvent : ResumeButton
                 PlayerStatus.instance.playerTier = 2;
                 pTier = 2;
                 pManager.ChangePlayerSprite(pTier);
-                wFire.ChangePlayerProjectile(0);
+                if(PlayerStatus.instance.isWeaponUpgrade == false)
+                {
+                    wFire.ChangePlayerProjectile(0);
+                }
+ 
 
                 //티어 상승에 따른 스텟 증가
                 PlayerStatus.instance.damage += 1;
@@ -51,7 +55,10 @@ public class PowerUpButtonEvent : ResumeButton
                 PlayerStatus.instance.playerTier = 3;
                 pTier = 3;
                 pManager.ChangePlayerSprite(pTier);
-                wFire.ChangePlayerProjectile(1);
+                if (PlayerStatus.instance.isWeaponUpgrade == false)
+                {
+                    wFire.ChangePlayerProjectile(1);
+                }
 
                 //티어 상승에 따른 스텟 증가
                 PlayerStatus.instance.damage += 1;

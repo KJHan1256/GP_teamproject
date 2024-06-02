@@ -29,9 +29,13 @@ public class ProjectileManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)     //충돌 발생 시
     {
-        if (collision.CompareTag("Enemy")) //적과 충돌했다면
+        if (collision.CompareTag("Enemy")) //관통효과가 없는데 적과 충돌했다면
         {
-            Destroy(gameObject);    //제거
+            if(PlayerStatus.instance.penetrateOn == false)
+            {
+                Destroy(gameObject);    //제거
+            }
+            
         }
     }
 

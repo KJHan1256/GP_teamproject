@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc58c19fa353a54fa22ff26dd8cede0, type: 3}
-  m_Name: Upgrade_AtkSpdUP
+  m_Name: Upgrade_HpUpLimit
   m_EditorClassIdentifier: 
   initialMaxLvl: 3
   maxLevel: 3
   currentLevel: 0
   isUpgradable: 1
-  upgradeCode: UP03
+  upgradeCode: UP01
   RelatedPrefeb: {fileID: 0}
-  RelatedUpgradeData: {fileID: 0}
-  UpgradeName: Attack Speed UP
-  UpgradeDesc: 'Increase your attack speed '
-  upgradeButton: {fileID: 5622087553300032149, guid: 4003a5f34e97aa74a8538d10f811fe44, type: 3}
+  RelatedUpgradeData: {fileID: 11400000, guid: aad3779f8f486e1479f2a9fc8daa894e, type: 2}
+  UpgradeName: Increase upgrade's max lvl
+  UpgradeDesc: Increase Hp upgrade's max lvl
+  upgradeButton: {fileID: 8488363298863660566, guid: 8b11bf545e3da4242ac04954ec9ec141, type: 3}

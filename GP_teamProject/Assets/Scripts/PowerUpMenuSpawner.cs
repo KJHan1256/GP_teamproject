@@ -126,9 +126,9 @@ public class PowerUpMenuSpawner : MonoBehaviour
         //인덱싱 오류를 막기 위해 뒤에서부터 리스팅
         for(int i = tempTierList.Count - 1 ; i >= 0 ; i--)
         {
-            print("removing max level upgrades...1");
+            print("removing max level upgrades at tier list");
             //만약 해당 업그레이드가 최대 레밸이 아니라면
-            if (tempTierList[i].isUpgradable == false)
+            if (tempTierList[i].currentLevel == tempTierList[i].maxLevel)
             {
                 //리스트에서 제거
                 tempTierList.RemoveAt(i);
@@ -138,10 +138,10 @@ public class PowerUpMenuSpawner : MonoBehaviour
         //소유 리스트에서 업그레이드 불가능한 항목 제거
         for(int i = tempOwnList.Count - 1 ; i >= 0 ;i--)
         {
-            print("removing max level upgrades...2");
-            if (tempOwnList[i].isUpgradable == false)
+            print("removing max level upgrades at own upgrade list");
+            if (tempOwnList[i].currentLevel == tempOwnList[i].maxLevel)
             {
-                tempOwnList.RemoveAt(i);
+                tempOwnList.RemoveAt(i); 
             }
         }
 

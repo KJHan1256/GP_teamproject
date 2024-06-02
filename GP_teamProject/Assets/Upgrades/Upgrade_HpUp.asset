@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc58c19fa353a54fa22ff26dd8cede0, type: 3}
   m_Name: Upgrade_HpUp
   m_EditorClassIdentifier: 
+  initialMaxLvl: 3
   maxLevel: 3
-  currentLevel: 0
+  currentLevel: 1
   isUpgradable: 1
   upgradeCode: UP01
-  UpgradePrefeb: {fileID: 0}
+  RelatedPrefeb: {fileID: 0}
+  RelatedUpgradeData: {fileID: 0}
   UpgradeName: Max hp up
   UpgradeDesc: Increase your max health
   upgradeButton: {fileID: 8488363298863660566, guid: 3459f71beed3df044bbd2062ec024280, type: 3}

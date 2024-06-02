@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnEvent_HpUp : ResumeButton
+public class BtnEvent_Penetrate : ResumeButton
 {
     [SerializeField] private UpgradeData _upgradeData;  //업그레이드의 정보를 담고있는 스크립터블 오브젝트
     private int upgradeLvl;
@@ -18,12 +18,7 @@ public class BtnEvent_HpUp : ResumeButton
 
         if (upgradeLvl == maxLvl)
         {
-            _upgradeData.isUpgradable = false;
             gameObject.SetActive(false);
-        }
-        else
-        {
-            _upgradeData.isUpgradable = true;
         }
     }
 
@@ -39,8 +34,7 @@ public class BtnEvent_HpUp : ResumeButton
         {
             _menuSpawner = transform.parent.GetComponent<PowerUpMenuSpawner>();
             _upgradeData.currentLevel += 1;
-            PlayerStatus.instance.maxHp += 5;
-            PlayerStatus.instance.currentHp = Mathf.Min(PlayerStatus.instance.maxHp, PlayerStatus.instance.currentHp + 5);
+            PlayerStatus.instance.penetrateOn = true;
             //만약 기존에 이 업그레이드를 소유하지 않았었다면
             if (_menuSpawner.ownUpgradeList.IndexOf(_upgradeData) == -1)
             {
@@ -53,3 +47,4 @@ public class BtnEvent_HpUp : ResumeButton
     }
 
 }
+

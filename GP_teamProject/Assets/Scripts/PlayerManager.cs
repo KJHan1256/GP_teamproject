@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviour  //플레이어 충돌 및 기타 설정 관리용
     private IEnumerator HitColorAnimation()
     {
         spriteRenderer.color = Color.red;   //스프라이크를 빨간색으로
-        yield return new WaitForSeconds(0.1f);  //0.1초 대기
+        yield return new WaitForSeconds(0.2f);  //0.1초 대기
         spriteRenderer.color = Color.white; //다시 원래 색으로
     }
 

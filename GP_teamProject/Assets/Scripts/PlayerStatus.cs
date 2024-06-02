@@ -13,7 +13,8 @@ public class PlayerStatus : MonoBehaviour
     public int playerTier = 1;  //플레이어 티어
     public bool isDie = false;
     public bool isPowerUp = false;
-
+    public bool penetrateOn = false;
+    public bool isWeaponUpgrade = false;
 
 
     private void Awake()

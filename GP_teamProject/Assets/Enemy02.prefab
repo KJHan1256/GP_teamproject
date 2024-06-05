@@ -116,12 +116,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageData: {fileID: 11400000, guid: 157ffd583ee6f304c9c0847a6aa49ed2, type: 2}
   damage: 2
-  maxHp: 5
+  maxHp: 4
   currentHp: 0
   scorePoint: 100
   spriteRenderer: {fileID: 0}
   statusMultiflier: 1
   statusUpScore: 5000
+  explosionPrefab: {fileID: 4919323364531973089, guid: 803d7f8da807b454ba4460d4219579ed, type: 3}
 --- !u!50 &-3106207501465315253
 Rigidbody2D:
   serializedVersion: 4

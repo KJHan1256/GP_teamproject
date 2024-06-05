@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PowerUpMenuSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject soundEffectObj;
+    private GameObject temp;
     //부모 오브젝트 지정
     [SerializeField] GameObject parentScreen;
 
@@ -27,6 +29,8 @@ public class PowerUpMenuSpawner : MonoBehaviour
     //아이템을 먹어 이 오브젝트가 활성화되면 호출
     private void OnEnable()
     {
+        temp = Instantiate(soundEffectObj);
+
         print("power up activated...");
 
         //리스트 초기화
@@ -89,6 +93,11 @@ public class PowerUpMenuSpawner : MonoBehaviour
         }
 
 
+    }
+
+    private void OnDisable()
+    {
+        Destroy(temp);
     }
 
 

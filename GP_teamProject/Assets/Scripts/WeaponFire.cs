@@ -11,6 +11,7 @@ public class WeaponFire : MonoBehaviour
     [SerializeField] private float attackRate = 0.3f;     //공격빈도 
     private List<GameObject> projectiles = new List<GameObject>();
     private int projectileIndex = 0;
+    private AudioSource attackSound;
 
 
     //공격속도가 등가할 때마다 공격빈도를 업데이트하기 위한 함수
@@ -30,6 +31,11 @@ public class WeaponFire : MonoBehaviour
         StopCoroutine("TryAttack");
     }
 
+    private void Awake()
+    {
+        attackSound = this.GetComponent<AudioSource>();    
+    }
+
 
     private void Start()
     {
@@ -47,6 +53,7 @@ public class WeaponFire : MonoBehaviour
     {
         while (true)
         {
+            attackSound.Play();
             GameObject obj = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
             //발새체를 현제 위치에 생성
 

@@ -6,7 +6,8 @@ using UnityEngine;
 public class PowerUPMangaer : MonoBehaviour
 {
     [SerializeField] private StageData stageData;    //스테이지 데이터'
-    
+
+
 
     void Start()
     {

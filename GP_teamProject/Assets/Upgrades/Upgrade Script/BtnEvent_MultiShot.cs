@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnEvent_AtkSpdUp : ResumeButton
+public class BtnEvent_MultiShot : ResumeButton
 {
     [SerializeField] private UpgradeData _upgradeData;  //업그레이드의 정보를 담고있는 스크립터블 오브젝트
     private int upgradeLvl;
@@ -16,7 +16,7 @@ public class BtnEvent_AtkSpdUp : ResumeButton
         upgradeLvl = _upgradeData.currentLevel;
         maxLvl = _upgradeData.maxLevel;
 
-        if (upgradeLvl == maxLvl)
+        if(upgradeLvl == maxLvl)
         {
             gameObject.SetActive(false);
         }
@@ -25,20 +25,19 @@ public class BtnEvent_AtkSpdUp : ResumeButton
 
     private void OnDisable()
     {
-        Destroy(this.gameObject);  
+        Destroy(this.gameObject);
     }
 
 
-    public void UpgradeSelected()
+    public void UpgradeSelected() 
     {
         if (upgradeLvl != maxLvl)
         {
             _menuSpawner = transform.parent.GetComponent<PowerUpMenuSpawner>();
             _upgradeData.currentLevel += 1;
-            PlayerStatus.instance.attackSpeed += 1;
-            GameObject t = GameObject.FindGameObjectWithTag("Player");
-            WeaponFire w = t.GetComponent<WeaponFire>();
-            w.AttackSpeedUpdate(PlayerStatus.instance.attackSpeed);
+
+            PlayerStatus.instance.multiShorLvl = _upgradeData.currentLevel;
+
             //만약 기존에 이 업그레이드를 소유하지 않았었다면
             if (_menuSpawner.ownUpgradeList.IndexOf(_upgradeData) == -1)
             {

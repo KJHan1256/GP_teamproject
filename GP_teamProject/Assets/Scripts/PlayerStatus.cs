@@ -15,6 +15,7 @@ public class PlayerStatus : MonoBehaviour
     public bool isPowerUp = false;
     public bool penetrateOn = false;
     public bool isWeaponUpgrade = false;
+    public int multiShorLvl = 0;
 
 
     private void Awake()

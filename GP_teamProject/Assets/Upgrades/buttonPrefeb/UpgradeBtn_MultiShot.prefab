@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP upgrade limit +1 '
+  m_text: MultiShot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 423371729042361212}
   - component: {fileID: 8920689122981609584}
   - component: {fileID: 5950739546793193363}
-  - component: {fileID: -3139700287490316841}
+  - component: {fileID: -7253534940021052967}
   m_Layer: 5
-  m_Name: UpgradeBtn_HpLimit
+  m_Name: UpgradeBtn_MultiShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -3139700287490316841}
-        m_TargetAssemblyTypeName: BtnEvent_HpLimit, Assembly-CSharp
+      - m_Target: {fileID: -7253534940021052967}
+        m_TargetAssemblyTypeName: BtnEvent_MultiShot, Assembly-CSharp
         m_MethodName: UpgradeSelected
         m_Mode: 1
         m_Arguments:
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-3139700287490316841
+--- !u!114 &-7253534940021052967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8488363298863660566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb23ae45871a6c45b4e48587118feb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d63a3237d64b14798efca3bff56977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradeData: {fileID: 11400000, guid: 0a25a24d2729945448481c67b4b7193f, type: 2}
+  _upgradeData: {fileID: 11400000, guid: 429f74267fed91f4da1ee00d0757885d, type: 2}

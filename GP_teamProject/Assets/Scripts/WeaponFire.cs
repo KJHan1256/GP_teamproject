@@ -14,11 +14,10 @@ public class WeaponFire : MonoBehaviour
     private AudioSource attackSound;
 
 
-    //공격속도가 등가할 때마다 공격빈도를 업데이트하기 위한 함수
     //공속이 업그레이드되면 호출하는 식으로 사용 예정
     public void AttackSpeedUpdate(float atkSpeed) 
     {
-        attackRate = attackRate / (1f + (0.2f * atkSpeed ) );
+        attackRate = attackRate / (1f + (0.1f * atkSpeed ) );
     }
 
     public void StartFiring()   //공격 시작 함수
@@ -49,12 +48,28 @@ public class WeaponFire : MonoBehaviour
 
 
 
+
     private IEnumerator TryAttack() //발사체 발사를 위한 코루틴 함수
     {
         while (true)
         {
             attackSound.Play();
             GameObject obj = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
+
+            if(PlayerStatus.instance.multiShorLvl > 0)
+            {
+                GameObject gt1 = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
+                Movement2D mt1 = gt1.GetComponent<Movement2D>();
+                mt1.moveDiredtion = new Vector3(1, 0.5f, 0);
+
+                if (PlayerStatus.instance.multiShorLvl > 1)
+                {
+                    GameObject gt2 = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
+                    Movement2D mt2 = gt2.GetComponent<Movement2D>();
+                    mt2.moveDiredtion = new Vector3(1, -0.5f, 0);
+                }
+            }
+            
             //발새체를 현제 위치에 생성
 
             yield return new WaitForSeconds(attackRate);

@@ -121,8 +121,9 @@ MonoBehaviour:
   scorePoint: 100
   spriteRenderer: {fileID: 0}
   statusMultiflier: 1
-  statusUpScore: 5000
+  statusUpScore: 2500
   explosionPrefab: {fileID: 4919323364531973089, guid: 803d7f8da807b454ba4460d4219579ed, type: 3}
+  tierSelf: 1
 --- !u!50 &-3106207501465315253
 Rigidbody2D:
   serializedVersion: 4

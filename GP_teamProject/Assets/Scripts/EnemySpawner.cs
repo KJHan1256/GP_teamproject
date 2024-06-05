@@ -21,14 +21,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int tier2Score;    //이 점수를 넘으면 2티어로 상승
     [SerializeField] private int tier3Score;    //이 점수를 넘으면 3티어로 상승
 
-    
+    private int backgroundTier = 1;
+    private int t;
 
 
     private void Awake()
     {
         //적 티어 및 생성할 적 초기화
         enemyTier = 1;
-        enemySpawn = enemyPrefabList[enemyTier - 1];   
+        enemySpawn = enemyPrefabList[enemyTier - 1];
+        backgroundTier = 1;
 
         //배경 변경을 위한 스크립트 받기
         bg = background.GetComponent<BackgroundScroller>();
@@ -50,8 +52,37 @@ public class EnemySpawner : MonoBehaviour
             {
                 ChangeEnemyTier(3);
             }
+            
+        }//티어가 3이 아닐때만 작동
+
+        if (backgroundTier < 3)
+        {
+            t = PlayerStatus.instance.playerTier;
         }
-    }
+
+        if (backgroundTier == 1)
+        {
+
+            if (t > 1 && enemyTier == 2)
+            {
+                bg.ChangeBackground(enemyTier);
+                backgroundTier = 2;
+                ClearLowTierEnemy();
+            }
+
+        }
+        else if (backgroundTier == 2)
+        {
+            if (t > 2 && enemyTier == 3)
+            {
+                bg.ChangeBackground(enemyTier);
+                backgroundTier = 3;
+                ClearLowTierEnemy();
+            }
+        }
+
+
+    }//update
 
 
     //적 티어 변경 함수
@@ -61,13 +92,27 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyTier = targetTier;
             enemySpawn = enemyPrefabList[enemyTier - 1];
-            bg.ChangeBackground(enemyTier);
             print("Enemy tier changed: " + enemyTier);
+            
         }
         else
         {
             print("wrong tier input");
             return;
+        }
+    }
+
+    private void ClearLowTierEnemy()
+    {
+        GameObject[] tempArray = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = tempArray.Length - 1; i >= 0; i--)
+        {
+            EnemyManager e = tempArray[i].GetComponent<EnemyManager>();
+            if (e.tierSelf != enemyTier)
+            {
+                Destroy(tempArray[i]);
+            }
         }
     }
 

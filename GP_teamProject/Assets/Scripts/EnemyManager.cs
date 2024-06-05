@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float statusMultiflier = 1;    //점수에 따라 증가하는 적 스텟 배수
     [SerializeField] private int statusUpScore = 5000;    //배수가 증가하는 점수 기준
     [SerializeField] private GameObject explosionPrefab;    //사망시 폭발 효과
+    public int tierSelf;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,7 +29,7 @@ public class EnemyManager : MonoBehaviour
         int n = PlayerStatus.instance.score / statusUpScore;
         //나눈 값의 0.1배가 최초 배수에 더해져 스탯 배수 결정
         float a = (float)n / 10;
-        statusMultiflier += a;
+        statusMultiflier += a*2;
 
         maxHp = maxHp * statusMultiflier;
         damage = damage * statusMultiflier;

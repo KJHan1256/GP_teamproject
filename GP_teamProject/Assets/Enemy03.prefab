@@ -123,6 +123,7 @@ MonoBehaviour:
   statusMultiflier: 1
   statusUpScore: 2500
   explosionPrefab: {fileID: 4919323364531973089, guid: 803d7f8da807b454ba4460d4219579ed, type: 3}
+  originalColor: {r: 1, g: 1, b: 1, a: 0}
   tierSelf: 3
 --- !u!50 &-3106207501465315253
 Rigidbody2D:

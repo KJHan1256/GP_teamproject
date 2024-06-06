@@ -11,21 +11,7 @@ public class WeaponFire : MonoBehaviour
     private AudioSource attackSound;
     private float projectileSize;
 
-    //공속이 업그레이드되면 호출하는 식으로 사용 예정
-    public void AttackSpeedUpdate(float atkSpeed) 
-    {
-        attackRate =  ( attackRate / (1f + (0.1f * atkSpeed ) ) );
-    }
-
-    public void StartFiring()   //공격 시작 함수
-    {
-        StartCoroutine("TryAttack");
-    }
-
-    public void StopFiring()    //공격 중지 함수
-    {
-        StopCoroutine("TryAttack");
-    }
+    
 
     private void Awake()
     {
@@ -94,7 +80,27 @@ public class WeaponFire : MonoBehaviour
             case 1:
                 projectileIndex = 2;
                 break;
+            //얼음탄환 업그레이드 획득
+            case 2:
+                projectileIndex = 3;
+                break;
         }
     }
 
+
+    //공속이 업그레이드되면 호출하는 식으로 사용 예정
+    public void AttackSpeedUpdate(float atkSpeed) 
+    {
+        attackRate =  ( attackRate / (1f + (0.1f * atkSpeed ) ) );
+    }
+
+    public void StartFiring()   //공격 시작 함수
+    {
+        StartCoroutine("TryAttack");
+    }
+
+    public void StopFiring()    //공격 중지 함수
+    {
+        StopCoroutine("TryAttack");
+    }
 }

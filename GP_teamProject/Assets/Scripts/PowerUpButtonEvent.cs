@@ -7,6 +7,11 @@ public class PowerUpButtonEvent : ResumeButton
 
     public int pTierCounter = 0;  //티어 상승 버튼을 누른 횟수
 
+    private void Awake()
+    {
+        pTierCounter = 0;
+    }
+
     //티어 업 버튼을 누를 시
     public void TierUpPressed()
     {
@@ -31,6 +36,8 @@ public class PowerUpButtonEvent : ResumeButton
                 PlayerStatus.instance.playerTier = 2;
                 pTier = 2;
                 pManager.ChangePlayerSprite(pTier);
+                Animator animator = playerTemp.GetComponent<Animator>();
+                animator.enabled = false;
                 if(PlayerStatus.instance.isWeaponUpgrade == false)
                 {
                     wFire.ChangePlayerProjectile(0);

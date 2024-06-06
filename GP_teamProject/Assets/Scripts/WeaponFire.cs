@@ -5,19 +5,16 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab1;   //공격시 발사할 투사체 프리팹
-    [SerializeField] private GameObject projectilePrefab2;
-    [SerializeField] private GameObject projectilePrefab3;
     [SerializeField] private float attackRate = 0.3f;     //공격빈도 
-    private List<GameObject> projectiles = new List<GameObject>();
+    [SerializeField] private List<GameObject> projectiles;  //공격시 발사할 투사체 프리팹 리스트
     private int projectileIndex = 0;
     private AudioSource attackSound;
-
+    private float projectileSize;
 
     //공속이 업그레이드되면 호출하는 식으로 사용 예정
     public void AttackSpeedUpdate(float atkSpeed) 
     {
-        attackRate = attackRate / (1f + (0.1f * atkSpeed ) );
+        attackRate =  ( attackRate / (1f + (0.1f * atkSpeed ) ) );
     }
 
     public void StartFiring()   //공격 시작 함수
@@ -40,12 +37,12 @@ public class WeaponFire : MonoBehaviour
     {
         AttackSpeedUpdate(PlayerStatus.instance.attackSpeed);   //초기 공격 빈도 설정
 
-        //발사체 종류를 담는 리스트 초기화
-        projectiles.Add(projectilePrefab1);
-        projectiles.Add(projectilePrefab2);
-        projectiles.Add(projectilePrefab3);
     }
 
+    private void Update()
+    {
+        projectileSize = PlayerStatus.instance.projectileScale;
+    }
 
 
 
@@ -55,24 +52,30 @@ public class WeaponFire : MonoBehaviour
         {
             attackSound.Play();
             GameObject obj = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
+            obj.transform.localScale *= projectileSize;
+
 
             if(PlayerStatus.instance.multiShorLvl > 0)
             {
                 GameObject gt1 = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
                 Movement2D mt1 = gt1.GetComponent<Movement2D>();
                 mt1.moveDiredtion = new Vector3(1, 0.5f, 0);
+                gt1.transform.localScale *= projectileSize;
+
 
                 if (PlayerStatus.instance.multiShorLvl > 1)
                 {
                     GameObject gt2 = Instantiate(projectiles[projectileIndex], transform.position, Quaternion.identity);
                     Movement2D mt2 = gt2.GetComponent<Movement2D>();
                     mt2.moveDiredtion = new Vector3(1, -0.5f, 0);
+                    gt2.transform.localScale *= projectileSize;
+
                 }
             }
             
             //발새체를 현제 위치에 생성
 
-            yield return new WaitForSeconds(attackRate);
+            yield return new WaitForSeconds(attackRate * PlayerStatus.instance.atkSpeedMutiplier);
             //attackRate 만큼 대기
         }
     }

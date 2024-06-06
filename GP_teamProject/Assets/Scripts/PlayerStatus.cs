@@ -16,6 +16,8 @@ public class PlayerStatus : MonoBehaviour
     public bool penetrateOn = false;
     public bool isWeaponUpgrade = false;
     public int multiShorLvl = 0;
+    public float projectileScale = 1;
+    public float atkSpeedMutiplier = 1; //공속 배수
 
 
     private void Awake()

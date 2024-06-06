@@ -1361,6 +1361,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2006e284a5ba61641b3bc6222f7a11cb, type: 2}
   - {fileID: 11400000, guid: 2199b8821a240b74081a99101d5d4463, type: 2}
   - {fileID: 11400000, guid: 429f74267fed91f4da1ee00d0757885d, type: 2}
+  - {fileID: 11400000, guid: a526d62790635cb419ccc916255ec923, type: 2}
 --- !u!1 &1041089886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,10 +1508,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b770abd82b555bd41a5ce3ac3473841b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab1: {fileID: 2702548932850259072, guid: ce587b4292ce0b4499e1473a7e8393bd, type: 3}
-  projectilePrefab2: {fileID: 2702548932850259072, guid: d8f1787f464cab747a83956fe5293c00, type: 3}
-  projectilePrefab3: {fileID: 2702548932850259072, guid: fa79cce359b408e4fa8fbccaa9712901, type: 3}
   attackRate: 0.3
+  projectiles:
+  - {fileID: 2702548932850259072, guid: ce587b4292ce0b4499e1473a7e8393bd, type: 3}
+  - {fileID: 2702548932850259072, guid: d8f1787f464cab747a83956fe5293c00, type: 3}
+  - {fileID: 2702548932850259072, guid: fa79cce359b408e4fa8fbccaa9712901, type: 3}
 --- !u!114 &1041089893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,6 +1552,8 @@ MonoBehaviour:
   penetrateOn: 0
   isWeaponUpgrade: 0
   multiShorLvl: 0
+  projectileScale: 1
+  atkSpeedMutiplier: 1
 --- !u!58 &1041089895
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2329,6 +2333,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b55cf6d3de82b74eab90358c5cf0a42, type: 2}
   - {fileID: 11400000, guid: aad3779f8f486e1479f2a9fc8daa894e, type: 2}
   - {fileID: 11400000, guid: 429f74267fed91f4da1ee00d0757885d, type: 2}
+  - {fileID: 11400000, guid: a526d62790635cb419ccc916255ec923, type: 2}
   upgradeList3T:
   - {fileID: 11400000, guid: fa044c035419be14ca7a4110e3d74b8b, type: 2}
   - {fileID: 11400000, guid: 5b55cf6d3de82b74eab90358c5cf0a42, type: 2}

@@ -14,11 +14,16 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float statusMultiflier = 1;    //점수에 따라 증가하는 적 스텟 배수
     [SerializeField] private int statusUpScore = 5000;    //배수가 증가하는 점수 기준
     [SerializeField] private GameObject explosionPrefab;    //사망시 폭발 효과
+    public Color originalColor;
     public int tierSelf;
+
     private void Awake()
     {
+        originalColor = Color.white;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHp = maxHp;
+        spriteRenderer.color = originalColor;
+
     }
 
 
@@ -90,7 +95,7 @@ public class EnemyManager : MonoBehaviour
     {
         spriteRenderer.color = new Color(255/255f, 0/255f ,169/255f);   //스프라이크를 빨간색으로
         yield return new WaitForSeconds(0.05f);  //0.1초 대기
-        spriteRenderer.color = Color.white; //다시 원래 색으로
+        spriteRenderer.color = originalColor; //다시 원래 색으로
     }
 
     public void OnDie()

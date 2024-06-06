@@ -1362,6 +1362,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2199b8821a240b74081a99101d5d4463, type: 2}
   - {fileID: 11400000, guid: 429f74267fed91f4da1ee00d0757885d, type: 2}
   - {fileID: 11400000, guid: a526d62790635cb419ccc916255ec923, type: 2}
+  - {fileID: 11400000, guid: 08e0a7fe5b6e5004eb08aa302d91301d, type: 2}
+  - {fileID: 11400000, guid: c8fc0dad017e7c3419544a1203d26360, type: 2}
 --- !u!1 &1041089886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1515,7 @@ MonoBehaviour:
   - {fileID: 2702548932850259072, guid: ce587b4292ce0b4499e1473a7e8393bd, type: 3}
   - {fileID: 2702548932850259072, guid: d8f1787f464cab747a83956fe5293c00, type: 3}
   - {fileID: 2702548932850259072, guid: fa79cce359b408e4fa8fbccaa9712901, type: 3}
+  - {fileID: 2702548932850259072, guid: aae11dec89f7c5b48bd845cda8c68e89, type: 3}
 --- !u!114 &1041089893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,6 +2342,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b55cf6d3de82b74eab90358c5cf0a42, type: 2}
   - {fileID: 11400000, guid: aad3779f8f486e1479f2a9fc8daa894e, type: 2}
   - {fileID: 11400000, guid: 2199b8821a240b74081a99101d5d4463, type: 2}
+  - {fileID: 11400000, guid: 08e0a7fe5b6e5004eb08aa302d91301d, type: 2}
+  - {fileID: 11400000, guid: c8fc0dad017e7c3419544a1203d26360, type: 2}
   ownUpgradeList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

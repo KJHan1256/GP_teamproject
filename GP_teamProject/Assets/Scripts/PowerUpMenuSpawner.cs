@@ -89,7 +89,7 @@ public class PowerUpMenuSpawner : MonoBehaviour
             print("showing upgrades...");
             GameObject btn = Instantiate(buttonList[i]);
             btn.transform.SetParent(parentScreen.transform, false);
-            btn.transform.localPosition = new Vector3(0, 200 - (150 * i), 0);
+            btn.transform.localPosition = new Vector3(0, 250 - (170 * i), 0);
         }
 
 

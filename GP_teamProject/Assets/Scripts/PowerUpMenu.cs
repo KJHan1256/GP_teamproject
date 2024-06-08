@@ -5,18 +5,30 @@ using UnityEngine;
 public class PowerUpMenu : MonoBehaviour
 {
     [SerializeField] private GameObject PowerUpMenuCanvus;
+    private PauseGame pauseCheckcomp;
+
+    private void Start()
+    {
+        pauseCheckcomp = this.GetComponent<PauseGame>();
+    }
 
 
     void Update()
     {
-        if(PlayerStatus.instance.isPowerUp == true)
+        if (pauseCheckcomp.GameIsPaused == false)
         {
-            Time.timeScale = 0;
-            PowerUpMenuCanvus.SetActive(true);
-        }else
-        {
-            Time.timeScale = 1;
-            PowerUpMenuCanvus.SetActive(false);
+
+            if (PlayerStatus.instance.isPowerUp == true)
+            {
+                Time.timeScale = 0;
+                PowerUpMenuCanvus.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                PowerUpMenuCanvus.SetActive(false);
+            }
+
         }
 
     }

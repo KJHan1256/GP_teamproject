@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
 {
-    [SerializeField] private float attackRate = 0.3f;     //공격빈도 
+    public float attackRate = 0.3f;     //공격빈도 
     [SerializeField] private List<GameObject> projectiles;  //공격시 발사할 투사체 프리팹 리스트
     private int projectileIndex = 0;
     private AudioSource attackSound;

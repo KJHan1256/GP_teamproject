@@ -51,6 +51,7 @@ public class EnemyManager : MonoBehaviour
             Vector3 pos = transform.position;
             if (pos.x <= stageData.LimitMin.x - 2.0f)    //스테이지의 왼쪽을 완전히 벗어났다면 
             {
+                pos.y = Random.Range(stageData.LimitMin.y, stageData.LimitMax.y);
                 pos.x = stageData.LimitMax.x + 1.0f;
                 transform.position = pos;
                 //다시 화면 오른쪽에서 등장하도롣 위치 변경

@@ -9,7 +9,7 @@ public class FreezeProjectileManager : MonoBehaviour
         if (collision.CompareTag("Enemy")){
 
             Movement2D m = collision.gameObject.GetComponent<Movement2D>();
-            m.moveDiredtion.x = Mathf.Min(m.moveDiredtion.x + 0.1f, 0);
+            m.moveDiredtion.x = Mathf.Min(m.moveDiredtion.x + 0.1f, 0.5f);
             EnemyManager e = collision.gameObject.GetComponent<EnemyManager>();
             e.originalColor = Color.blue;
 

@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
-  speed: 5
+  speed: 7.5
   stageData: {fileID: 11400000, guid: 157ffd583ee6f304c9c0847a6aa49ed2, type: 2}
   keyCodeAttack: 32
 --- !u!114 &1041089892

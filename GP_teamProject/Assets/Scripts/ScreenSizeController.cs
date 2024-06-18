@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class ScreenSizeController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int screenWidthSet;
+    [SerializeField] private int screenHeightSet;
+    [SerializeField] private bool isWindow = true;
+    
     void Awake()
     {
-        ScreenSizeResoultion();
+        //InitialScreenSizeResoultion();
 
     }
 
-    public void ScreenSizeResoultion()
+
+    public void InitialScreenSizeResoultion()
     {
-        int setWidth = 1920;
-        int setHeight = 1080;
+        int setWidth = screenWidthSet;
+        int setHeight = screenHeightSet;
 
-        Screen.SetResolution(setWidth, setHeight, true);
+        if (isWindow)
+        {
+            Screen.SetResolution(setWidth, setHeight, FullScreenMode.Windowed);
+        }else
+        {
+            Screen.SetResolution(setWidth, setHeight, FullScreenMode.FullScreenWindow);
+        }
+        
+        
+
     }
 
+
+    
 }

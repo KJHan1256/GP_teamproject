@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private StageData stageData;     //스테이지 데이터 에셋을 받기 위한 필드
     [SerializeField] private KeyCode keyCodeAttack = KeyCode.Space; //공격기, 스페이스바가 기본
     private WeaponFire weaponFire;      //공격 기능 들여오기
+    private float deltaTimeRec;
+    private float attackRate;
 
     //Awake는 오브젝트 생성시 동작, 따라서 가장 처음 동작되는 부분
     private void Awake()
@@ -19,12 +21,15 @@ public class PlayerController : MonoBehaviour
         weaponFire = GetComponent<WeaponFire>();   //공격 기능 캐슁
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        if(PlayerStatus.instance.isDie == true)
+        deltaTimeRec += Time.deltaTime;
+        attackRate = weaponFire.attackRate * PlayerStatus.instance.atkSpeedMutiplier;
+
+        if (PlayerStatus.instance.isDie == true)
         {
             inputVec = Vector2.zero;
             //죽었다면 조작 불가
@@ -40,7 +45,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(keyCodeAttack))    //공격키가 눌리면
         {
-            weaponFire.StartFiring();   //공격 실시
+            if (deltaTimeRec > attackRate)
+            {
+                weaponFire.StartFiring();   //공격 실시
+                deltaTimeRec = 0;
+            }
         }
         else if (Input.GetKeyUp(keyCodeAttack)) //공격 키가 안눌려 있으면
         { 

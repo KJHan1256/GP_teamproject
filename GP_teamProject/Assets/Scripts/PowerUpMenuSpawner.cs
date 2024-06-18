@@ -110,21 +110,21 @@ public class PowerUpMenuSpawner : MonoBehaviour
 
         //각각 티어별 등장 가능 리스트를 담을 변수, 현재 가진 업그레이드를 담을 변수
         List<UpgradeData> tempTierList;
-        List<UpgradeData> tempOwnList = ownUpgradeList;
+        List<UpgradeData> tempOwnList = ownUpgradeList.ToList();
 
         switch (tier)
         {
             case 1:
-                tempTierList = upgradeList1T;
+                tempTierList = upgradeList1T.ToList();
                 break;
             case 2:
-                tempTierList = upgradeList2T;
+                tempTierList = upgradeList2T.ToList();
                 break;
             case 3:
-                tempTierList = upgradeList3T;
+                tempTierList = upgradeList3T.ToList();
                 break;
             default:
-                tempTierList = upgradeList1T;
+                tempTierList = upgradeList1T.ToList();
                 break;
         }
         if(tempTierList == null)
